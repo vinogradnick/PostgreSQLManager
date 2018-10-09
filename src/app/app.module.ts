@@ -18,7 +18,7 @@ import { TableToolComponent } from './table-tool/table-tool.component';
 import { CreateTableComponent } from './create-table/create-table.component';
 import { RequestTableComponent } from './request-table/request-table.component';
 import { UserSettingsTableComponent } from './user-settings-table/user-settings-table.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -101,7 +101,7 @@ import { SelectRequestTableComponent } from './select-request-table/select-reque
     MatTooltipModule,
     MatTreeModule
   ],
-  declarations: [SelectRequestTableComponent],
+  declarations: [],
   imports: []
 })
 export class MaterialModule { }
@@ -123,7 +123,8 @@ export class MaterialModule { }
     CreateTableComponent,
     RequestTableComponent,
     UserSettingsTableComponent,
-    StartPageComponent
+    StartPageComponent,
+    SelectRequestTableComponent
   ],
   imports: [
     BrowserModule,
