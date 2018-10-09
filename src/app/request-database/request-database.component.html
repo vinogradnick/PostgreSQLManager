@@ -1,0 +1,15 @@
+<div class="database_menu_container sql_view">
+    <form #sqlForm="ngForm" (submit)="executeSQL(sqlForm)"   class="sql-request" >
+        <mat-form-field appearance="outline">
+            <mat-label>Выполнить SQL-запрос(ы) на сервере</mat-label>
+
+            <textarea matInput class="sql_form" name="sqlCode" ngModel  #sqlArea placeholder="SQL-запрос"></textarea>
+          </mat-form-field>
+          <div class="group-btn">
+              <button mat-raised-button color="primary" type="submit">Выполнить запрос</button>
+              <button mat-raised-button color="accent" type="button" (click)="clear(sqlArea)">Очистить форму</button>
+
+          </div>
+
+    </form>
+</div>

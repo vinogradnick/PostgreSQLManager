@@ -1,0 +1,19 @@
+<main class="main_view">
+  <nav>
+    <mat-toolbar class="nav_toolbar">
+      <span class="info">PostgreSQL database</span>
+      <button type="button" mat-button (click)="drawer.toggle()">Меню</button>
+    </mat-toolbar>
+  </nav>
+  <mat-drawer-container class="main_view container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+      <div class="content">
+          <tree-sidebar></tree-sidebar>
+      </div>
+    </mat-drawer>
+    <div class="sidenav-content">
+      <router-outlet></router-outlet>
+   
+    </div>
+  </mat-drawer-container>
+</main>

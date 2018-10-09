@@ -1,0 +1,6 @@
+
+.login_page_form{
+    display: flex;
+    justify-content: center;
+    width: 300px;
+}

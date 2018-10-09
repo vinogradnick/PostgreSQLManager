@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+.sidenav{
+    width: 300px;
+    background-color: red;
+}
+
+  
+.main_view{
+    height: 100vh;
+}
+
+.sidenav-content{
+    padding: 10px;
+}
+.nav_toolbar >.info{
+    margin-right: 10px;
+
+}
+table {
+    width: 50%;
+  }
+.database_menu_container{
+   margin: 20px;
+}
+.database_create_form .create_database{
+    margin: 5px;
+}
+.database_menu_container .sql-request{
+    display: flex;
+    flex-direction: column;
+}
+.sql-request .group-btn button{
+    margin-right: 8px;
+
+}

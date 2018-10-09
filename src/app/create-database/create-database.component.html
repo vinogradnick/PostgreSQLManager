@@ -1,0 +1,26 @@
+<div class="database_menu_container">
+    <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" class="database_create_form" novalidate>
+        <mat-form-field class="example-full-width">
+          <input matInput ngModel name="databaseName" placeholder="Название базы данных" placeholder="database_name...">
+        </mat-form-field>
+    
+        <button mat-raised-button class="create_database" color="primary">Создать базу данных</button>
+      </form>
+      <br>
+    <table mat-table [dataSource]="data" class="mat-elevation-z8">
+        <!-- Index Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Название базы данных </th>
+          <td mat-cell *matCellDef="let data"> {{data}} </td>
+        </ng-container>
+      
+        <!-- Index Column -->
+        <ng-container matColumnDef="defferent">
+          <th mat-header-cell *matHeaderCellDef> Сравнение</th>
+          <td mat-cell *matCellDef="let index = index"> {{index}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>
