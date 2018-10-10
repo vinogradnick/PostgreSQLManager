@@ -15,9 +15,17 @@
 </div>
 <div>
     <div>
-        <ul *ngFor="">
-            
-          </ul>
+       <table *ngIf="fields && rows">
+           <tr>
+               <th *ngFor="let col of fields">
+                   {{col.name}}
+
+               </th>
+           </tr>
+           <tr >
+               <td *ngFor="let data of rows">{{data.id}}</td>
+           </tr>
+       </table>
     </div>
     
 </div>

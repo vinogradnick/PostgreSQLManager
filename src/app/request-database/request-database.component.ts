@@ -9,8 +9,10 @@ import { IRequest, DatabaseService } from '../database.service';
 })
 export class RequestDatabaseComponent implements OnInit {
   tableStore:object;
-  public logger:IRequest;
-  constructor(private databaseService:DatabaseService) {
+  rows:object[];
+  fields:object[];
+  logger:object;
+    constructor(private databaseService:DatabaseService) {
     
    }
   /**
@@ -25,8 +27,14 @@ export class RequestDatabaseComponent implements OnInit {
    */
   executeSQL(form:NgForm){
     console.log("executed");
-    this.logger=this.databaseService.sendRequest(form.value);
-    
+    this.databaseService.sendRequest(form.value).subscribe((data)=>{
+      this.rows=data.rows;
+      this.fields=data.fields;
+      this.logger=data;
+    });
+    console.table(this.rows);
+    console.table(this.fields)
+    console.log(this.logger);
   }
   clear(element){
     element.value="";

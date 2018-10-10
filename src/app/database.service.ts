@@ -30,9 +30,8 @@ export class DatabaseService {
   logger:IRequest;
   constructor(private http:HttpClient) {  }
 
-  sendRequest(sql){
-     this.http.post("http://localhost:3000/database/request",{sql:sql.sqlCode},headerOptions).subscribe((data:IRequest)=>this.logger=data);
-    return this.logger;
+  sendRequest(sql):Observable<IRequest>{
+    return this.http.post<IRequest>("http://localhost:3000/database/request",{sql:sql.sqlCode},headerOptions);
     }
   getLogger():IRequest{
     return this.logger;
