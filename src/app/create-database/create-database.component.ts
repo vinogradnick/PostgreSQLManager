@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { DatabaseService, IDatabases } from '../database.service';
 import { map, filter, scan } from 'rxjs/operators';
+import { SelectionModel } from '@angular/cdk/collections';
 
 
 
@@ -12,8 +13,9 @@ import { map, filter, scan } from 'rxjs/operators';
 })
 export class CreateDatabaseComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'defferent'];
+  displayedColumns: string[] = ['name', 'code'];
   data: string[] = ['pg_catalog', 'kolhoz'];
+  selection=new SelectionModel<string[]>(true,[]);
   store: IDatabases[];
   onSubmit(form:NgForm){
     console.log(form.value)

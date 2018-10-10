@@ -5,12 +5,17 @@ import { Observable } from 'rxjs';
 export interface IDatabases {
   datname:string
 }
+export interface IRequest{
+  command:string;
+  fields:object[];
+  rows:object[];
 
+}
 const headerOptions={
   headers:new HttpHeaders({ 'Content-Type': 'application/json'})
 }
 
-class Database{
+export class Database{
   name:string;
   localization:string;
   constructor(name,localization){
@@ -22,12 +27,15 @@ class Database{
   providedIn: 'root'
 })
 export class DatabaseService {
-
-  constructor(private http:HttpClient) { }
+  logger:IRequest;
+  constructor(private http:HttpClient) {  }
 
   sendRequest(sql){
-    console.log(sql);
-    return this.http.post("http://localhost:3000/database/request",{sql:sql.sqlCode},headerOptions).subscribe(data=>console.log(data));
+     this.http.post("http://localhost:3000/database/request",{sql:sql.sqlCode},headerOptions).subscribe((data:IRequest)=>this.logger=data);
+    return this.logger;
+    }
+  getLogger():IRequest{
+    return this.logger;
   }
 
   createDatabase(database){

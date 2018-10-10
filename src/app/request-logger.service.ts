@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DatabaseService } from './database.service';
+import { DatabaseService, IRequest } from './database.service';
 
 class Table{
   columns:string[];
@@ -9,7 +9,9 @@ class Table{
     this.transactions=transactions;
   }
 }
-
+/**
+ * @class Базы данных
+ */
 class Database{
   name:string;
   tables:Table[];
@@ -22,12 +24,20 @@ class Database{
   }
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class RequestLoggerService {
-  databases:Database[];
 
   constructor(private databaseService:DatabaseService) { }
+  /**
+   * Пользовательский запрос на сервер
+   * @param userRequest UserStatus Request
+   */
+  requestServer(userRequest){
+    this.databaseService.sendRequest(userRequest);
+  }
+  getLoggerToClient():IRequest{
+    return this.databaseService.getLogger();
+  }
 }
